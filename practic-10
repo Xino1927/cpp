@@ -1,0 +1,66 @@
+#include <iostream>
+#include <random>
+using namespace std;
+
+int main() {
+	random_device rd;
+	mt19937 gen(rd());
+	uniform_int_distribution<> distrib(1, 10);
+	setlocale(0, "");
+	int a;
+	int ugad;
+	int popitk;
+	int rndcislo;
+	int otvet;
+	rndcislo = distrib(gen);
+	ugad = 0;
+	popitk = 5;
+	cout << "1 START GAME" << endl;
+	cout << "2 STOP" << endl;
+	cin >> a;
+	if (a == 2) {
+		fclose;
+	}
+	else if (a==1) {
+		cout << "угаданых чисел [" << ugad << "/3]" << endl;
+		cout << "попыток [" << popitk << "]" << endl;
+
+	}
+	else {
+		cout << "error";
+	}
+	while (popitk != 0 and ugad<=3) {
+		cout << "угадай число";
+		cin >> otvet;
+		if (otvet == rndcislo) {
+			cout << "goat go next" << endl;
+
+			ugad = ugad + 1;
+			cout << "угаданых чисел [" << ugad << "/3]" << endl;
+			cout << "попыток [" << popitk << "]" << endl;
+			rndcislo = distrib(gen);
+		}
+		else {
+			cout << "wrong" << endl;
+			popitk = popitk - 1;
+			cout << "угаданых чисел [" << ugad << "/3]" << endl;
+			cout << "попыток [" << popitk << "]" << endl;
+			rndcislo = distrib(gen);
+		}
+		if (popitk == 0) {
+			cout << "u lose";
+			fclose;
+			break;
+		}
+		else if (ugad == 3) {
+			cout << "u win";
+			fclose;
+			break;
+		}
+		
+	}
+
+		
+		
+		return 0;
+}
