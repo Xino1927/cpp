@@ -1,0 +1,57 @@
+using namespace std;
+#include <iostream>
+int main() {
+	setlocale(0, "");
+	cout << "1 январь" << endl << "2 феварь" << endl << "3 март" << endl << "4 апрель" << endl << "5 май" << endl << "6 июнь" << endl << "7 июль" << endl << "8 август" << endl << "9 сентябрь" << endl << "10 октябрь" << endl << "11 ноябрь" << endl << "12 декабрь" << endl;
+	
+	int a;
+	cin >> a;
+	cout << "введите день";
+	int b;
+	cin >> b;
+	string c;
+
+	switch (a) {
+		case 1:
+			c = "январь";
+			break;
+		case 2:
+			c = "феварль";
+			break;
+		case 3:
+			c = "март";
+			break;
+		case 4:
+			c = "апрель";
+			break;
+		case 5:
+			c = "май";
+			break;
+		case 6:
+			c = "июнь";
+			break;
+		case 7:
+			c = "июль";
+			break;
+		case 8:
+			c = "август";
+			break;
+		case 9:
+			c = "сентябрь";
+			break;
+		case 10:
+			c = "октябрь";
+			break;
+		case 11:
+			c = "ноябрь";
+			break;
+		case 12:
+			c = "декабрь";
+			break;
+		default:
+			cout << "error";
+			break;
+		}
+	cout << c << " " << b;
+	return 0;
+}
