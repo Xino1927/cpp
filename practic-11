@@ -1,0 +1,39 @@
+#include <iostream>
+#include <cstdlib>  
+using namespace std;
+int main()
+{
+    std::cout << "1 linia" << endl;
+    int a;
+    int b;
+    char vgg;
+    int dlina;
+    cin >> a;
+    if (a == 1) {
+        system("cls");
+        cout << "figura linia" << endl;
+        cout << "1 gorizont" << endl;
+        cout << "2 vertical" << endl;
+        cin >> b;
+        cout << "enter dlina" << endl;
+        cout << "enter texture" << endl;
+        cin >> dlina;
+        cin >> vgg;
+    }
+    else {
+        cout << "error";
+        fclose;
+    }
+    if (b == 1) {
+        while (dlina != 0) {
+            cout << vgg;
+            dlina--;
+        }
+    }
+    else if (b == 2) {
+        while (dlina != 0) {
+            cout << vgg << endl;
+            dlina--;
+        }
+    }
+}
