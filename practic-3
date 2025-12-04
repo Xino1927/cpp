@@ -1,0 +1,48 @@
+using namespace std;
+#include <iostream>
+int main() {
+	int a;
+	cin >> a;
+	if (a % 10 == 0) {
+		a = a -1;
+		a= a / 10;
+	}
+	else {
+		a = a / 10;
+	}
+	switch (a) {
+		case 0:
+			cout << "0-10";
+			break;
+		case 1:
+			cout << "11-20";
+			break;
+		case 2:
+			cout << "21-30";
+			break;
+		case 3:
+			cout << "31-40";
+			break;
+		case 4:
+			cout << "41-50";
+			break;
+		case 5:
+			cout << "51-60";
+			break;
+		case 6:
+			cout << "61-70";
+			break;
+		case 7:
+			cout << "71-80";
+			break;
+		case 8:
+			cout << "81-90";
+			break;
+		case 9:
+			cout << "91-100";
+			break;
+		default:
+			cout << "error";
+	}
+	return 0;
+}
