@@ -1,31 +1,35 @@
 #include <iostream>
 #include <cstdlib>  
+#include <windows.h> 
+
+void setColor(int textColor, int bgColor = 0) {
+	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+	SetConsoleTextAttribute(hConsole, (bgColor << 4) | textColor);
+}
 using namespace std;
 int main() {
 	setlocale(0, "");
 	int vibr1 = 0;
 	int dlvihoda;
 	int score = 0;
-	int colvopr;
+	int colvopr = 0;
 	int color;
 	int lifes = 3;
 	string name = "name";
 
 	string vopros1 = "системный язык програмирования?\n1 cpp\n2 python\n3 ruby\n4 c#\n";
-	string vopros2 = "системный язык програмирования?\n1 cpp\n2 python\n3 ruby\n4 c#\n";
-	string vopros3 = "системный язык програмирования?\n1 cpp\n2 python\n3 ruby\n4 c#\n";
-	string vopros4 = "системный язык програмирования?\n1 cpp\n2 python\n3 ruby\n4 c#\n";
-	string vopros5 = "системный язык програмирования?\n1 cpp\n2 python\n3 ruby\n4 c#\n";
-	string vopros6 = "системный язык програмирования?\n1 cpp\n2 python\n3 ruby\n4 c#\n";
-	string vopros7 = "системный язык програмирования?\n1 cpp\n2 python\n3 ruby\n4 c#\n";
-	string vopros8 = "системный язык програмирования?\n1 cpp\n2 python\n3 ruby\n4 c#\n";
-	string vopros9 = "системный язык програмирования?\n1 cpp\n2 python\n3 ruby\n4 c#\n";
-	string vopros10 = "системный язык програмирования?\n1 cpp\n2 python\n3 ruby\n4 c#\n";
-	string vopros11 = "системный язык програмирования?\n1 cpp\n2 python\n3 ruby\n4 c#\n";
-	string vopros12 = "системный язык програмирования?\n1 cpp\n2 python\n3 ruby\n4 c#\n";
+	string vopros2 = "Что такое переменная?\n1 Часть кода, которая повторяется много раз\n2	Контейнер для хранения данных, значение которого можно менять\n3 Тип данных для целых чисел\n4 Ошибка в программе\n";
+	string vopros3 = "Какой оператор используется в большинстве языков для присваивания значения переменной?\n1 ==\n2 =\n3 !=\n4 :=\n";
+	string vopros4 = "Какой тип данных обычно используется для хранения целого числа\n1 String\n2 Float\n3 Bool\n4 int\n";
+	string vopros5 = "Что делает условный оператор if?\n1 Запускает цикл \n2 Выполняет код только при выполнении определенного условия\n3 Объявляет новую функцию\n4 Выводит текст на экран\n";
+	string vopros6 = "Какой цикл используется, когда известно точное количество повторений?\n1 Цикл while\n2 Цикл for\n3 Цикл do...while\n4 Бесконечный цикл\n";
+	string vopros7 = "Что хранит переменная логического типа bool?\n1 Текст\n2 Число с плавающей запятой\n3 Значение true (истина) или false (ложь)\n4 Список элементов\n";
+	string vopros8 = "Что такое массив (или список)?\n1 Условный оператор\n2 Структура данных для хранения набора элементов\n3 Специальный тип цикла\n4 Имя переменной\n";
+	string vopros9 = "Как называется блок кода, который выполняет определенную задачу и может вызываться по имени?\n1 Переменная\n2 Цикл\n3 Функция (или метод)\n4 Условие\n";
+	string vopros10 = "Какой символ часто используется для однострочных комментариев в таких языках, как Python, JavaScript или C++?\n1 //\n2 --\n3 **\n4 &&\n";
+	string vopros11 = "Что означает оператор сравнения ==?\n1 Присвоить значение\n2 Проверить, не равны ли значения	\n3 Проверить, равны ли значения\n4 Сложить два значения\n";
+	string vopros12 = "Что такое «синтаксическая ошибка» (syntax error)?\n1 Ошибка в логике программы, из-за которой она работает не так, как задумано\n2 Ошибка, возникающая при попытке выполнить операцию с неподходящим типом данных\n3 Ошибка в написании команд языка, из-за которой программа не может быть запущена\n4 Ошибка, возникающая при делении на ноль\n";
 
-	string vopros1 = "системный язык програмирования?\n1 cpp\n2 python\n3 ruby\n4 c#\n";
-	string vopros1 = "системный язык програмирования?\n1 cpp\n2 python\n3 ruby\n4 c#\n";
 	while (vibr1 != 4) {
 		cout << "1 начать игру\n2 настройки\n3 правила\n4 выйти";
 		cin >> vibr1;
@@ -48,7 +52,14 @@ int main() {
 			break;
 		}
 	}
-	while (lifes != 0 and colvopr !=0) {
+	if (color == 2) {
+		setColor(12);
+	}
+	else if (color == 3) {
+		setColor(10);
+	}
+	while (lifes > 0 && colvopr > 0) {
+
 		cout << name << " | " << "жизни: " << lifes << " | " << "score: " << score << endl;
 		cout << vopros1;
 		cin >> vibr1;
@@ -60,7 +71,235 @@ int main() {
 			lifes--;
 			colvopr--;
 		}
+		if (lifes <= 0) {
+			cout << "ты проиграл\n";
+			break;
+		}
+
+		if (colvopr <= 0) {
+			cout << "ты победил\n";
+			break;
+		}
 		cout << name << " | " << "жизни: " << lifes << " | " << "score: " << score << endl;
-		
+		cout << vopros2;
+		cin >> vibr1;
+		if (vibr1 == 2) {
+			score++;
+			colvopr--;
+		}
+		else {
+			lifes--;
+			colvopr--;
+		}
+		if (lifes <= 0) {
+			cout << "ты проиграл\n";
+			break;
+		}
+
+		if (colvopr <= 0) {
+			cout << "ты победил\n";
+			break;
+		}
+		cout << name << " | " << "жизни: " << lifes << " | " << "score: " << score << endl;
+		cout << vopros3;
+		cin >> vibr1;
+		if (vibr1 == 2) {
+			score++;
+			colvopr--;
+		}
+		else {
+			lifes--;
+			colvopr--;
+		}
+		if (lifes <= 0) {
+			cout << "ты проиграл\n";
+			break;
+		}
+
+		if (colvopr <= 0) {
+			cout << "ты победил\n";
+			break;
+		}
+		cout << name << " | " << "жизни: " << lifes << " | " << "score: " << score << endl;
+		cout << vopros4;
+		cin >> vibr1;
+		if (vibr1 == 4) {
+			score++;
+			colvopr--;
+		}
+		else {
+			lifes--;
+			colvopr--;
+		}
+		if (lifes <= 0) {
+			cout << "ты проиграл\n";
+			break;
+		}
+
+		if (colvopr <= 0) {
+			cout << "ты победил\n";
+			break;
+		}
+		cout << vopros5;
+		cin >> vibr1;
+		if (vibr1 == 2) {
+			score++;
+			colvopr--;
+		}
+		else {
+			lifes--;
+			colvopr--;
+		}
+		if (lifes <= 0) {
+			cout << "ты проиграл\n";
+			break;
+		}
+
+		if (colvopr <= 0) {
+			cout << "ты победил\n";
+			break;
+		}
+		cout << name << " | " << "жизни: " << lifes << " | " << "score: " << score << endl;
+		cout << vopros6;
+		cin >> vibr1;
+		if (vibr1 == 2) {
+			score++;
+			colvopr--;
+		}
+		else {
+			lifes--;
+			colvopr--;
+		}
+		if (lifes <= 0) {
+			cout << "ты проиграл\n";
+			break;
+		}
+
+		if (colvopr <= 0) {
+			cout << "ты победил\n";
+			break;
+		}
+		cout << name << " | " << "жизни: " << lifes << " | " << "score: " << score << endl;
+		cout << vopros7;
+		cin >> vibr1;
+		if (vibr1 == 3) {
+			score++;
+			colvopr--;
+		}
+		else {
+			lifes--;
+			colvopr--;
+		}
+		if (lifes <= 0) {
+			cout << "ты проиграл\n";
+			break;
+		}
+
+		if (colvopr <= 0) {
+			cout << "ты победил\n";
+			break;
+		}
+		cout << name << " | " << "жизни: " << lifes << " | " << "score: " << score << endl;
+		cout << vopros8;
+		cin >> vibr1;
+		if (vibr1 == 2) {
+			score++;
+			colvopr--;
+		}
+		else {
+			lifes--;
+			colvopr--;
+		}
+		if (lifes <= 0) {
+			cout << "ты проиграл\n";
+			break;
+		}
+
+		if (colvopr <= 0) {
+			cout << "ты победил\n";
+			break;
+		}
+		cout << name << " | " << "жизни: " << lifes << " | " << "score: " << score << endl;
+		cout << vopros9;
+		cin >> vibr1;
+		if (vibr1 == 3) {
+			score++;
+			colvopr--;
+		}
+		else {
+			lifes--;
+			colvopr--;
+		}
+		if (lifes <= 0) {
+			cout << "ты проиграл\n";
+			break;
+		}
+
+		if (colvopr <= 0) {
+			cout << "ты победил\n";
+			break;
+		}
+		cout << name << " | " << "жизни: " << lifes << " | " << "score: " << score << endl;
+		cout << vopros10;
+		cin >> vibr1;
+		if (vibr1 == 1) {
+			score++;
+			colvopr--;
+		}
+		else {
+			lifes--;
+			colvopr--;
+		}
+		if (lifes <= 0) {
+			cout << "ты проиграл\n";
+			break;
+		}
+
+		if (colvopr <= 0) {
+			cout << "ты победил\n";
+			break;
+		}
+		cout << name << " | " << "жизни: " << lifes << " | " << "score: " << score << endl;
+		cout << vopros11;
+		cin >> vibr1;
+		if (vibr1 == 3) {
+			score++;
+			colvopr--;
+		}
+		else {
+			lifes--;
+			colvopr--;
+		}
+		if (lifes <= 0) {
+			cout << "ты проиграл\n";
+			break;
+		}
+
+		if (colvopr <= 0) {
+			cout << "ты победил\n";
+			break;
+		}
+		cout << name << " | " << "жизни: " << lifes << " | " << "score: " << score << endl;
+		cout << vopros12;
+		cin >> vibr1;
+		if (vibr1 == 3) {
+			score++;
+			colvopr--;
+		}
+		else {
+			lifes--;
+			colvopr--;
+		}
+		if (lifes <= 0) {
+			cout << "ты проиграл\n";
+			break;
+		}
+
+		if (colvopr <= 0) {
+			cout << "ты победил\n";
+			break;
+		}
+
 	}
+
 }
